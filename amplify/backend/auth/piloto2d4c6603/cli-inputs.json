@@ -1,0 +1,55 @@
+{
+  "version": "1",
+  "cognitoConfig": {
+    "identityPoolName": "piloto2d4c6603_identitypool_2d4c6603",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "piloto2d4c6603",
+    "userPoolName": "piloto2d4c6603_userpool_2d4c6603",
+    "autoVerifiedAttributes": [
+      "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+      "SMS Text Message"
+    ],
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [],
+    "requiredAttributes": [
+      "email",
+      "phone_number"
+    ],
+    "aliasAttributes": [],
+    "userpoolClientGenerateSecret": false,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientWriteAttributes": [
+      "email"
+    ],
+    "userpoolClientReadAttributes": [
+      "email"
+    ],
+    "userpoolClientLambdaRole": "piloto2d4c6603_userpoolclient_lambda_role",
+    "userpoolClientSetAttributes": false,
+    "sharedId": "2d4c6603",
+    "resourceName": "piloto2d4c6603",
+    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "default",
+    "usernameAttributes": [
+      "email"
+    ],
+    "triggers": {
+      "CustomMessage": [
+        "verification-link"
+      ]
+    },
+    "userPoolGroupList": [],
+    "serviceName": "Cognito",
+    "verificationBucketName": "piloto2d4c6603verificationbucket",
+    "usernameCaseSensitive": false,
+    "useEnabledMfas": true
+  }
+}

@@ -1,0 +1,83 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+# INTEGRATION MODELS
+
+# Stores a user request to run a specific job for a platform.
+# IE. Run Invoice Job on SAT platform.
+type Job @model {
+  id: ID!
+  attempt_id: ID!
+  platform: Platform!
+  key: JobKey!
+}
+
+enum PlatformKey {
+  SAT
+  BAC
+}
+
+enum JobKey {
+  INVOICE
+  PAYMENT
+  BANK_TRANSFER
+}
+
+type Platform @model {
+  id: ID!
+  key: PlatformKey!
+  name: String!
+  jobs: [Job]
+}
+
+type InvoiceItem @model {
+  id: ID!
+  description: String!
+
+  amount: Int!
+  unit_amount: Int!
+  quantity: Int!
+  discount: Int!
+  total: Int!
+  tax: Int!
+}
+
+type Invoice @model {
+  id: ID!
+
+  type: String
+  currency: String
+  exportation: Boolean
+
+  account_name: String
+  account_tax_id: String
+  account_address: String
+
+  customer_name: String
+  customer_tax_id: String
+  customer_address: String
+
+  items: [InvoiceItem]! @hasMany
+
+  amount: Int!
+}
+
+
+type Transfer @model {
+    id: ID!
+
+    date: String!
+    description: String!
+    tags: [String]
+
+    amount: Int!
+    currency: String!
+
+    origin_account_name: String!
+    origin_account_number: String!
+
+    destination_account_name: String!
+    destination_account_number: String!
+}
